@@ -1,0 +1,24 @@
+﻿c:\123\email.doc 	
+c:\123\email.docx 		
+c:\email.doc 	
+c:\email.htm 	
+c:\loaddll.exe
+c:\program files\malware bytes\mbam.exe
+c:\program files\malware bytes\mbae.exe
+c:\symbols\aagmmc.pdb
+c:\take_screenshot.ps1 	
+c:\windows\perfc.dat
+c:\windows\perfc.dll
+c:\windows\system32\VBoxControl.exe
+c:\windows\system32\vboxdisp.dll 	
+c:\windows\system32\vboxhook.dll 	
+c:\windows\system32\vboxmrxnp.dll 	
+c:\windows\system32\vboxogl.dll 	
+c:\windows\system32\vboxoglarrayspu.dll 	
+c:\windows\system32\vboxoglcrutil.dll 	
+c:\windows\system32\vboxoglerrorspu.dll 	
+c:\windows\system32\vboxoglfeedbackspu.dll 	
+c:\windows\system32\vboxoglpackspu.dll 	
+c:\windows\system32\vboxoglpassthroughspu.dll
+c:\windows\system32\vboxservice.exe 	
+c:\windows\system32\vboxtray.exe 	

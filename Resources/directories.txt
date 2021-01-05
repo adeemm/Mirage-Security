@@ -1,0 +1,10 @@
+﻿c:\123
+c:\analysis
+c:\program files (x86)\malware bytes
+c:\program files (x86)\oracle\virtualbox guest additions
+c:\program files (x86)\vmware
+c:\program files\malware bytes
+c:\program files\oracle\virtualbox guest additions
+c:\program files\vmware
+c:\sandbox
+c:\symbols

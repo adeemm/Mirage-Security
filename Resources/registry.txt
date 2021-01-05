@@ -1,0 +1,11 @@
+﻿HARDWARE\ACPI\DSDT\VBOX__
+HARDWARE\ACPI\FADT\VBOX__
+HARDWARE\ACPI\RSDT\VBOX__
+SOFTWARE\Oracle\VirtualBox Guest Additions
+SOFTWARE\VMware, Inc.\VMware Tools
+SOFTWARE\Wine
+SYSTEM\ControlSet001\Services\VBoxGuest
+SYSTEM\ControlSet001\Services\VBoxMouse
+SYSTEM\ControlSet001\Services\VBoxService
+SYSTEM\ControlSet001\Services\VBoxSF
+SYSTEM\ControlSet001\Services\VBoxVideo
