@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Mirage_Security.Artifacts;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,12 +13,21 @@ namespace Mirage_Security
 {
     public partial class MainForm : Form
     {
-        Artifacts artifacts;
+        Artifact driver;
+        Artifact fs;
+        Artifact mutex;
+        Artifact process;
+        Artifact registry;
 
         public MainForm()
         {
             InitializeComponent();
-            artifacts = new Artifacts();
+
+            driver = new Driver();
+            fs = new Filesystem();
+            mutex = new Mutex();
+            process = new Process();
+            registry = new Registry();
         }
 
         private void minimizeButton_Click(object sender, EventArgs e)
@@ -27,12 +37,12 @@ namespace Mirage_Security
 
         private void closeButton_Click(object sender, EventArgs e)
         {
-            
-            artifacts.endProcesses();
-            artifacts.removeDrivers();
-            artifacts.removeFileArtifacts();
-            artifacts.removeMutex();
-            artifacts.removeRegistryArtifacts();
+
+            driver.remove();
+            fs.remove();
+            mutex.remove();
+            process.remove();
+            registry.remove();
 
             this.Close();
         }
@@ -59,7 +69,7 @@ namespace Mirage_Security
             
         }
 
-        private void doButtonWork(Guna.UI2.WinForms.Guna2Button button, Guna.UI2.WinForms.Guna2CirclePictureBox statusMarker, Action work, Action cleanup)
+        private void doButtonWork(Guna.UI2.WinForms.Guna2Button button, Guna.UI2.WinForms.Guna2CirclePictureBox statusMarker, Artifact a)
         {
             updateStatus(button, statusMarker, 2);
 
@@ -67,7 +77,7 @@ namespace Mirage_Security
             {
                 Task.Factory.StartNew(() =>
                 {
-                    work();
+                    a.create();
                     updateStatus(button, statusMarker, 1);
                 });
             }
@@ -75,7 +85,7 @@ namespace Mirage_Security
             {
                 Task.Factory.StartNew(() =>
                 {
-                    cleanup();
+                    a.remove();
                     updateStatus(button, statusMarker, 3);
                 });
             }
@@ -83,27 +93,27 @@ namespace Mirage_Security
 
         private void fileButton_Click(object sender, EventArgs e)
         {
-            doButtonWork(fileButton, fileStatus, artifacts.createFileArtifacts, artifacts.removeFileArtifacts);
+            doButtonWork(fileButton, fileStatus, fs);
         }
 
         private void processButton_Click(object sender, EventArgs e)
         {
-            doButtonWork(processButton, processStatus, artifacts.createProcesses, artifacts.endProcesses);
+            doButtonWork(processButton, processStatus, process);
         }
 
         private void registryButton_Click(object sender, EventArgs e)
         {
-            doButtonWork(registryButton, registryStatus, artifacts.createRegistryArtifacts, artifacts.removeRegistryArtifacts);
+            doButtonWork(registryButton, registryStatus, registry);
         }
 
         private void driverButton_Click(object sender, EventArgs e)
         {
-            doButtonWork(driverButton, driverStatus, artifacts.createDrivers, artifacts.removeDrivers);
+            doButtonWork(driverButton, driverStatus, driver);
         }
 
         private void mutexButton_Click(object sender, EventArgs e)
         {
-            doButtonWork(mutexButton, mutexStatus, artifacts.createMutex, artifacts.removeMutex);
+            doButtonWork(mutexButton, mutexStatus, mutex);
         }
     }
 }
